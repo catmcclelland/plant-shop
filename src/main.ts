@@ -9,8 +9,8 @@ async function bootstrap() {
     whitelist: true,
   }));
   const config = new DocumentBuilder()
-    .setTitle('Median')
-    .setDescription('The Median API description')
+    .setTitle('Plant Shop API documentation')
+    .setDescription('How to use the Plant Shop API')
     .setVersion('0.1')
     .build();
 

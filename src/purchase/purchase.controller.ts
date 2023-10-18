@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, ParseIntPipe } from '@nestjs/common';
 import { PurchaseService } from './purchase.service';
 import { createPurchaseDto } from './dto';  
 import { ApiBadRequestResponse, ApiCreatedResponse, ApiNotFoundResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
@@ -20,8 +20,8 @@ export class PurchaseController {
   @Get(':id')
   @ApiOkResponse({type: PurchaseEntity})
   @ApiNotFoundResponse({description: 'Purchase not found'})
-  findOne(@Param('id') id: string) {
-    return this.purchaseService.findPurchase(+id);
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.purchaseService.findPurchase(id);
   }
 
   }

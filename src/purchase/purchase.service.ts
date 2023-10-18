@@ -1,4 +1,4 @@
-import { HttpException, Injectable } from '@nestjs/common';
+import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { createPurchaseDto } from './dto';
 import { PlantService } from 'src/plant/plant.service';
@@ -38,8 +38,8 @@ export class PurchaseService {
       where: {
         orderNumber: id
       }})
-    console.log(purchase)
-    if (!purchase) throw new HttpException('Purchase not found', 404);
+    
+    if (!purchase) throw new NotFoundException('Purchase not found');
 
     return purchase;
   }
