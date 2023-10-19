@@ -39,7 +39,7 @@ export class PurchaseService {
         orderNumber: id
       }})
     
-    if (!purchase) throw new NotFoundException('Purchase not found');
+    // if (!purchase) throw new NotFoundException('Purchase not found');
 
     return purchase;
   }

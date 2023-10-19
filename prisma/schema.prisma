@@ -11,20 +11,20 @@ datasource db {
 }
 
 model Plant {
-  id Int @id @default(autoincrement())
-  name String
+  id             Int    @id @default(autoincrement())
+  name           String
   scientificName String
-  quantity Int 
-  price Float
-  funFact String
+  quantity       Int
+  price          Float
+  funFact        String
 }
 
 model Purchase {
-  orderNumber Int @id @default(autoincrement())
-  purchaserName String
-  shippingAddress String
+  orderNumber      Int    @id @default(autoincrement())
+  purchaserName    String
+  shippingAddress  String
   purchaseQuantity Int
-  plantId Int 
-  plantName String
-  totalPrice Float
+  plantId          Int
+  plantName        String
+  totalPrice       Float
 }
