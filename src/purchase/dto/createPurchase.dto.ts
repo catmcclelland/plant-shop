@@ -1,5 +1,5 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsInt, IsNotEmpty, IsString, Min } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsInt, IsNotEmpty, IsString, Min } from 'class-validator';
 
 export class createPurchaseDto {
   @IsString()
@@ -16,7 +16,7 @@ export class createPurchaseDto {
   @Min(1)
   @IsNotEmpty()
   @ApiProperty({
-    minimum: 1
+    minimum: 1,
   })
   plantId: number;
 
@@ -24,7 +24,7 @@ export class createPurchaseDto {
   @Min(1)
   @IsNotEmpty()
   @ApiProperty({
-    minimum: 1
+    minimum: 1,
   })
   purchaseQuantity: number;
 }

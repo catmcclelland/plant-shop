@@ -11,10 +11,10 @@ export class PlantService {
 
   async findPlant(id: number) {
     const plant = await this.prisma.plant.findUnique({
-        where: {
-          id: id,
-        },
-      });
+      where: {
+        id: id,
+      },
+    });
 
     if (!plant) throw new HttpException('Plant not found', 404);
 
@@ -33,7 +33,7 @@ export class PlantService {
   createPlant(createPlantDto: createPlantDto) {
     return this.prisma.plant.create({
       data: {
-        ...createPlantDto
+        ...createPlantDto,
       },
     });
   }

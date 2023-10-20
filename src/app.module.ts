@@ -3,7 +3,6 @@ import { PrismaModule } from './prisma/prisma.module';
 import { PurchaseModule } from './purchase/purchase.module';
 import { PlantModule } from './plant/plant.module';
 
-
 @Module({
   imports: [PrismaModule, PurchaseModule, PlantModule],
 })

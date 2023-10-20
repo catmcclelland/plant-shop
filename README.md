@@ -19,6 +19,6 @@ Plant Shop is an API for browsing and purchasing plants.
    ```
 
 ### Usage
-Explore the API endpoints via swagger UI here.
+Explore the API endpoints via swagger UI [here](postgres://plant_shop_db_user:LYITZv5ZndyphsGo6TDsA5qqbGWjvxCP@dpg-ckomuo0ujous73fnma1g-a/plant_shop_db).
 
 
