@@ -1,4 +1,4 @@
-import { Purchase } from '@prisma/client';
+import { Plant, Purchase } from '@prisma/client';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class PurchaseEntity implements Purchase {
@@ -22,4 +22,7 @@ export class PurchaseEntity implements Purchase {
 
   @ApiProperty()
   totalPrice: number;
+
+  @ApiProperty()
+  plant: Plant;
 }

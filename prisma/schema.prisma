@@ -17,6 +17,7 @@ model Plant {
   quantity       Int
   price          Float
   funFact        String
+  purchase       Purchase[]
 }
 
 model Purchase {
@@ -24,7 +25,7 @@ model Purchase {
   purchaserName    String
   shippingAddress  String
   purchaseQuantity Int
-  plantId          Int
-  plantName        String
+  plantId          Int  
+  plant        Plant    @relation(fields: [plantId], references: [id])
   totalPrice       Float
 }

@@ -13,6 +13,7 @@ import {
   ApiCreatedResponse,
   ApiNotFoundResponse,
   ApiOkResponse,
+  ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
 import { PurchaseEntity } from './entities/purchase.entity';
@@ -24,6 +25,7 @@ export class PurchaseController {
 
   @Post()
   @ApiCreatedResponse({ type: PurchaseEntity })
+  @ApiOperation({ summary: 'Create a new purchase' })
   @ApiNotFoundResponse({ description: 'Plant not found' })
   @ApiBadRequestResponse({ description: 'Not enough plants in stock' })
   create(@Body() createPurchaseDto: createPurchaseDto) {
@@ -32,6 +34,7 @@ export class PurchaseController {
 
   @Get(':id')
   @ApiOkResponse({ type: PurchaseEntity })
+  @ApiOperation({ summary: 'Find a purchase by its order number' })
   @ApiNotFoundResponse({ description: 'Purchase not found' })
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.purchaseService.findPurchase(id);

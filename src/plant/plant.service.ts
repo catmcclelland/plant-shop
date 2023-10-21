@@ -1,6 +1,5 @@
-import { HttpException, Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { createPlantDto } from './dto';
 
 @Injectable()
 export class PlantService {
@@ -16,7 +15,7 @@ export class PlantService {
       },
     });
 
-    if (!plant) throw new HttpException('Plant not found', 404);
+    if (!plant) throw new NotFoundException('Plant not found');
 
     return plant;
   }
@@ -27,14 +26,6 @@ export class PlantService {
         id: id,
       },
       data: data,
-    });
-  }
-
-  createPlant(createPlantDto: createPlantDto) {
-    return this.prisma.plant.create({
-      data: {
-        ...createPlantDto,
-      },
     });
   }
 }
