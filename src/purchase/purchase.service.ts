@@ -13,10 +13,10 @@ export class PurchaseService {
 
   async createPurchase(createPurchaseDto: createPurchaseDto) {
     const plantId = createPurchaseDto.plantId;
-    const purchaseQuantity = createPurchaseDto.purchaseQuantity;
     const plant = await this.plant.findPlant(plantId);
-    const newPlantQuantity = plant!.quantity - purchaseQuantity;
-    const totalPrice = plant!.price * purchaseQuantity;
+    const purchaseQuantity = createPurchaseDto.purchaseQuantity;
+    const newPlantQuantity = plant.quantity - purchaseQuantity;
+    const totalPrice = plant.price * purchaseQuantity;
 
     if (newPlantQuantity >= 0) {
       this.plant.updatePlant(plantId, { quantity: newPlantQuantity });

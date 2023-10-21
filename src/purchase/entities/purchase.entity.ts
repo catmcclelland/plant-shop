@@ -15,9 +15,6 @@ export class PurchaseEntity implements Purchase {
   plantId: number;
 
   @ApiProperty()
-  plantName: string;
-
-  @ApiProperty()
   purchaseQuantity: number;
 
   @ApiProperty()

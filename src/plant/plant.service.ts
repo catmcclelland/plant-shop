@@ -4,8 +4,9 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class PlantService {
   constructor(private prisma: PrismaService) {}
-  findAllPlants() {
-    return this.prisma.plant.findMany();
+  async findAllPlants() {
+    const plants = await this.prisma.plant.findMany();
+    return { plants: plants };
   }
 
   async findPlant(id: number) {
