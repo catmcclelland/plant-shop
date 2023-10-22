@@ -1,6 +1,7 @@
 ## Description
 
 Plant Shop is an API for browsing and purchasing plants. 
+
 The API is located at https://plant-shop-cat-dev.koyeb.app/.
 
 ### Routes
