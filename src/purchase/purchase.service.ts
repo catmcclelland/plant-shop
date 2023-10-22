@@ -1,4 +1,8 @@
-import { BadRequestException,Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { createPurchaseDto } from './dto';
 import { PlantService } from 'src/plant/plant.service';
@@ -21,7 +25,7 @@ export class PurchaseService {
     if (newPlantQuantity >= 0) {
       this.plant.updatePlant(plantId, { quantity: newPlantQuantity });
     } else {
-      throw new BadRequestException('Not enough plants in stock')
+      throw new BadRequestException('Not enough plants in stock');
     }
 
     const purchase = await this.prisma.purchase.create({
@@ -30,8 +34,8 @@ export class PurchaseService {
         totalPrice: totalPrice,
       },
     });
-    
-    return {...purchase, plant};
+
+    return { ...purchase, plant };
   }
 
   async findPurchase(id: number) {
@@ -42,9 +46,9 @@ export class PurchaseService {
     });
 
     if (!purchase) throw new NotFoundException('Purchase not found');
-    
+
     const plant = await this.plant.findPlant(purchase.plantId);
 
-    return {...purchase, plant};
+    return { ...purchase, plant };
   }
 }

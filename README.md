@@ -1,24 +1,15 @@
-
 ## Description
 
-Plant Shop is an API for browsing and purchasing plants. 
+Plant Shop is an API for browsing and purchasing plants.
 
-### Installation
+### Routes
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
-3. Start the server
-  ```sh
-   npm run start:prod
-   ```
+| Endpoint          | Usage                                                                          |
+| ----------------- | ------------------------------------------------------------------------------ |
+| GET /plants       | Retrieves a list of all plants in the store.                                   |
+| POST /purchase    | Creates a purchase order for a particular plant. Returns the purchase details. |
+| GET /purchase/:id | Retrieves purchase details.                                                    |
 
-### Usage
-Explore the API endpoints via swagger UI [here](postgres://plant_shop_db_user:LYITZv5ZndyphsGo6TDsA5qqbGWjvxCP@dpg-ckomuo0ujous73fnma1g-a/plant_shop_db).
+### Documentation
 
-
+Explore the API endpoints in detail via Swagger UI [here](https://plant-shop-cat-dev.koyeb.app/api).
