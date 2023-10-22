@@ -5,7 +5,7 @@ import { Prisma } from '@prisma/client';
 @Catch(Prisma.PrismaClientKnownRequestError)
 export class PrismaClientExceptionFilter extends BaseExceptionFilter {
   catch(exception: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
-    console.error(exception.message);
+
     const errorMessage = 'Sorry, something went wrong on our end.';
     const statusCode = 500;
     const errorDescription = exception.message;

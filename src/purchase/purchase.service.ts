@@ -8,7 +8,6 @@ import { createPurchaseDto } from './dto';
 import { PlantService } from 'src/plant/plant.service';
 
 @Injectable()
-//todo: Update once Plant is added to db
 export class PurchaseService {
   constructor(
     private prisma: PrismaService,
@@ -17,13 +16,13 @@ export class PurchaseService {
 
   async createPurchase(createPurchaseDto: createPurchaseDto) {
     const plantId = createPurchaseDto.plantId;
-    const plant = await this.plant.findPlant(plantId);
+    let plant = await this.plant.findPlant(plantId);
     const purchaseQuantity = createPurchaseDto.purchaseQuantity;
     const newPlantQuantity = plant.quantity - purchaseQuantity;
     const totalPrice = plant.price * purchaseQuantity;
 
     if (newPlantQuantity >= 0) {
-      this.plant.updatePlant(plantId, { quantity: newPlantQuantity });
+      plant = await this.plant.updatePlant(plantId, { quantity: newPlantQuantity });
     } else {
       throw new BadRequestException('Not enough plants in stock');
     }

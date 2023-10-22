@@ -21,12 +21,14 @@ export class PlantService {
     return plant;
   }
 
-  updatePlant(id: number, data: any) {
-    return this.prisma.plant.update({
+  async updatePlant(id: number, data: any) {
+    const plant = await this.prisma.plant.update({
       where: {
         id: id,
       },
       data: data,
     });
+
+    return plant;
   }
 }
